@@ -3,13 +3,14 @@ package springboot.domain.posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import springboot.domain.BaseTimeEntity;
 
 import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
 @Entity // 테이블과 링크될 클래스 명시, 언더스코어 네이밍으로 테이블 이름 매칭
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id // 해당 테이블의 PK 필드
     // 복합키를 사용할 경우 유니크 키 따로 생성 권장
