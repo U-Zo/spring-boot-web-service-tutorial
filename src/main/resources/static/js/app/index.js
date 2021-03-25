@@ -6,6 +6,9 @@ const main = {
     $('#btn-update').on('click', () => {
       this.update();
     });
+    $('#btn-delete').on('click', () => {
+      this.delete();
+    });
   },
   save() {
     const data = {
@@ -43,6 +46,21 @@ const main = {
       data: JSON.stringify(data),
     }).done(() => {
       alert('글이 수정되었습니다.');
+      window.location.href = '/';
+    }).fail((err) => {
+      alert(JSON.stringify(err));
+    });
+  },
+  delete() {
+    const id = $('#id').val();
+
+    $.ajax({
+      type: 'DELETE',
+      url: '/api/v1/posts/' + id,
+      dataType: 'json',
+      contentType: 'application/json; charset=utr-8',
+    }).done(() => {
+      alert('글이 삭제되었습니다.');
       window.location.href = '/';
     }).fail((err) => {
       alert(JSON.stringify(err));
