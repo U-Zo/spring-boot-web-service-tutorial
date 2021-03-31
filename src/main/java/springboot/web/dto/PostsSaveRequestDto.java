@@ -7,7 +7,7 @@ import springboot.domain.posts.Posts;
 
 @Getter
 @NoArgsConstructor
-// Dto 클래스는 Entity 클래스와 유사함에도 Request/Response 클래스로 사용해서는 안 된다.
+// Entity 클래스는 Dto 클래스와 유사함에도 Request/Response 클래스로 사용해서는 안 된다.
 // 데이터베이스와 맞닿은 핵심 클래스이기 때문에.
 public class PostsSaveRequestDto {
 

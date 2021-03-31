@@ -7,17 +7,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import springboot.service.PostsService;
 import springboot.web.dto.PostsResponseDto;
+import springboot.web.dto.SessionUser;
+
+import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
+    private final HttpSession httpSession;
 
     // Model: 서버 템플릿 엔진에 전달할 데이터 저장
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("posts", postsService.findAllDesc());
+
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
 
         return "index"; // 자동으로 View Resolver가 처리
     }
