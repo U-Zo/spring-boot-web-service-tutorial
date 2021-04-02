@@ -30,6 +30,8 @@ dependencies {
     compile('com.h2database:h2') // h2 데이터베이스를 의존성으로 추가
     compile('org.springframework.boot:spring-boot-starter-mustache')
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+    compile('org.springframework.boot:spring-boot-starter-data-redis')
+    compile('org.springframework.session:spring-session-data-redis')
     annotationProcessor('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
